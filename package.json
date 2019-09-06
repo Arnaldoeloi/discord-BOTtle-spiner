@@ -1,14 +1,29 @@
 {
-  "name": "mybot",
+  "name": "bottle-spinner",
   "version": "0.0.1",
   "description": "A bot that rolls bottles",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Arnaldo Souza",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.5.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arnaldoeloi/discord-BOTtle-spiner.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "spinner",
+    "bottle"
+  ],
+  "bugs": {
+    "url": "https://github.com/Arnaldoeloi/discord-BOTtle-spiner/issues"
+  },
+  "homepage": "https://github.com/Arnaldoeloi/discord-BOTtle-spiner#readme"
 }
