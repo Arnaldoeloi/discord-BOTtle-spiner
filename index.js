@@ -30,22 +30,11 @@ client.on('message', message => {
     console.log(command);
 
     if(command === 'spin'){
-        // console.log(message.guild.presences);
+
         users = message.channel.members;
-        console.log(getRandomKey(users));
+        users.delete(message.author.id);
         
         message.channel.send(`${message.author} spinned the bottle. The bottle is poiting towards ${users.get(getRandomKey(users))}`)
     }
-
-    // if(command === 'args-info'){
-    //     if(!args.length){
-    //         return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-    //     }else if (args[0] === 'foo'){
-    //         return message.channel.send('bar');
-    //     }
-
-    //     message.channel.send(`First argument:  ${args[0]}\n`);
-    //     message.channel.send(`Command name:  ${command}\nArguments: ${args}`);
-    // }
     
 });
