@@ -11,6 +11,16 @@ client.once('ready', () => {
 
 client.login(token);
 
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+
+// returns random key from Set or Map
+function getRandomKey(collection) {
+    let keys = Array.from(collection.keys());
+    return keys[Math.floor(Math.random() * keys.length)];
+}
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     
@@ -19,15 +29,23 @@ client.on('message', message => {
 
     console.log(command);
 
-    if(command === 'args-info'){
-        if(!args.length){
-            return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-        }else if (args[0] === 'foo'){
-            return message.channel.send('bar');
-        }
-
-        message.channel.send(`First argument:  ${args[0]}\n`);
-        message.channel.send(`Command name:  ${command}\nArguments: ${args}`);
+    if(command === 'spin'){
+        // console.log(message.guild.presences);
+        users = message.channel.members;
+        console.log(getRandomKey(users));
+        
+        message.channel.send(`${message.author} spinned the bottle. The bottle is poiting towards ${users.get(getRandomKey(users))}`)
     }
+
+    // if(command === 'args-info'){
+    //     if(!args.length){
+    //         return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+    //     }else if (args[0] === 'foo'){
+    //         return message.channel.send('bar');
+    //     }
+
+    //     message.channel.send(`First argument:  ${args[0]}\n`);
+    //     message.channel.send(`Command name:  ${command}\nArguments: ${args}`);
+    // }
     
 });
